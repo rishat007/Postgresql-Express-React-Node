@@ -1,7 +1,7 @@
-const router = require('express').Router();
-const { checkToken } = require('../../auth/token_validations');
 const { createUser, getUsers, getUserById, updateUser, deleteUser, login } = require('./user.controller');
 // const {create} = require('./user.service');
+const router = require('express').Router();
+const { checkToken } = require('../../auth/token_validations');
 
 router.post('/', createUser);
 router.get('/', checkToken, getUsers);
