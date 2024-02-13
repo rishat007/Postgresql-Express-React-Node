@@ -6,21 +6,21 @@ module.exports = {
     createUser: (req, res) => {
         const body = req.body;
 
-        getUserByEmail(body.email, (err, existingUser) => {
-            if (err) {
-                console.log(err);
-                return res.status(500).json({
-                    success: 0,
-                    message: 'Database connection error'
-                });
-            }
+        // getUserByEmail(body.email, (err, existingUser) => {
+        //     if (err) {
+        //         console.log(err);
+        //         return res.status(500).json({
+        //             success: 0,
+        //             message: 'Database connection error'
+        //         });
+        //     }
 
-            if (existingUser) {
-                return res.status(400).json({
-                    success: 0,
-                    message: 'Email already exists'
-                });
-            }
+            // if (existingUser) {
+            //     return res.status(400).json({
+            //         success: 0,
+            //         message: 'Email already exists'
+            //     });
+            // }
 
             // Hash password
             const salt = genSaltSync(10);
@@ -40,7 +40,7 @@ module.exports = {
                     data: results
                 });
             });
-        });
+        // });
     },
     getUsers: (req, res) => {
         getUsers((err, results) => {
