@@ -11,7 +11,7 @@ module.exports = {
             ], 
             (error, results, fields) => {
                 if(error){
-                    return callBack(error);
+                    callBack(error);
                 }
                 return callBack(null, results);
             }
@@ -23,7 +23,7 @@ module.exports = {
             [],
             (error, results, fields) => {
                 if(error){
-                    return callBack(error);
+                    callBack(error);
                 }
                 return callBack(null, results);
             }
@@ -31,11 +31,11 @@ module.exports = {
     },
     getUserById: (id, callBack) => {
         pool.query(
-            `SELECT * FROM students WHERE id = $1`,
+            `SELECT * FROM students WHERE id = ?`,
             [id],
             (error, results, fields) => {
                 if(error){
-                    return callBack(error);
+                    callBack(error);
                 }
                 return callBack(null, results[0]);
             }
@@ -52,7 +52,7 @@ module.exports = {
             ],
             (error, results, fields) => {
                 if(error){
-                    return callBack(error);
+                    callBack(error);
                 }
                 return callBack(null, results);
             }
@@ -60,11 +60,11 @@ module.exports = {
     },
     deleteUser: (data, callBack) => {
         pool.query(
-            `DELETE FROM students WHERE id = $1`,
+            `DELETE FROM students WHERE id = ?`,
             [data.id],
             (error, results, fields) => {
                 if(error){
-                    return callBack(error);
+                    callBack(error);
                 }
                 return callBack(null, results);
             }
@@ -72,11 +72,11 @@ module.exports = {
     },
     getUserByEmail: (email, callBack) => {
         pool.query(
-            `SELECT * FROM students WHERE email = $1`,
+            `SELECT * FROM students WHERE email = ?`,
             [email],
             (error, results, fields) => {
                 if(error){
-                    return callBack(error);
+                    callBack(error);
                 }
                 return callBack(null, results[0]);
             }

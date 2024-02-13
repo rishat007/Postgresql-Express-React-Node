@@ -67,6 +67,7 @@ module.exports = {
                     message: 'Record not found'
                 });
             }
+            results.password = undefined;
             return res.json({
                 success: 1,
                 data: results
