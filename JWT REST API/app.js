@@ -1,8 +1,9 @@
 require('dotenv').config();
 const express = require('express');
-// const studentRoutes = require('./src/student/routes');
-
 const app = express();
+const userRouter = require('./api/users/user.router');
+
+// const studentRoutes = require('./src/student/routes');
 
 // app.get('/api', (req, res) => {
 //     res.json({
@@ -11,7 +12,6 @@ const app = express();
 //     });
 // });
 
-const userRouter = require('./api/users/user.router');
 app.use(express.json());
 app.use('/api/users', userRouter);
 
